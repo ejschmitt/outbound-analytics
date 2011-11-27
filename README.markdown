@@ -2,17 +2,16 @@ outbound-analytics
 ==================
 
 A jQuery plugin that allows simple tracking of outbound link clicks
-using google analytics. This plugin tracks outbound clicks as page views, allowing conversion tracking. Requires google analytics tracking code to be available.
+using google analytics. This plugin tracks outbound clicks as page views, allowing conversion tracking (as opposed to event tracking). Requires google analytics tracking code to be available.
 
 Defaults
 --------
-* Target will be set to 'blank', this can be disabled.
+* Target will be set to "\_blank", this can be disabled.
 * Tracking pages will be recorded as 'outbound/{ URL }'
 
 Quickstart
 ----------
-Add the plugin to the page that includes the google analytics tracking
-code.
+Add the plugin to the page that includes google analytics tracking code.
 
 Add a class to outbound links you want to track, such as:
 
@@ -20,7 +19,7 @@ Add a class to outbound links you want to track, such as:
 <a href='http://example.com' class='outbound'>Click me</a>
 ```
 
-Trigger the plugin
+Trigger the plugin on that class
 
 ```javascript
 $(function() {
@@ -45,8 +44,7 @@ better tracking, these settings are as follows:
 
 ### trackPath
 
-trackPath sets the first part of the fake url sent to GA for tracking,
-can be changed to anything for greater flexibility.
+trackPath sets the first part of the fake url sent to GA for tracking, can be changed to something else for greater flexibility.
 
 Example
 
@@ -110,3 +108,9 @@ Tracked Url: 'outbound/bounce/custom-link/http://example.com'
 
 Tracked Url: '/amazon/suggested/deals_index/text_link/http://example.com'
 ```
+
+Author
+------
+Erick Schmitt :: [@ejschmitt][0]
+
+[0]: http://twitter.com/ejschmitt
