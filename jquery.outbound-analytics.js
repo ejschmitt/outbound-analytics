@@ -2,6 +2,7 @@
  $.fn.outboundAnalytics = function(options) {
 
   var defaults = {
+    includeDestination: true,
     trackPath: 'outbound',
     pathSuffix: '',
     pathSuffixAttribute: null,
@@ -19,9 +20,9 @@
 
     var gaUrl = [];
     gaUrl.push(options.trackPath);
-    options.pathSuffix ? gaUrl.push(options.pathSuffix) : null;
-    options.pathSuffixAttribute && that.attr(options.pathSuffixAttribute) ? gaUrl.push(that.attr(options.pathSuffixAttribute)) : null;
-    gaUrl.push(that.attr('href'));
+    if (options.pathSuffix) { gaUrl.push(options.pathSuffix) };
+    if (options.pathSuffixAttribute && that.attr(options.pathSuffixAttribute)) { gaUrl.push(that.attr(options.pathSuffixAttribute)) };
+    if (options.includeDestination) { gaUrl.push(that.attr('href')) };
     gaUrl = gaUrl.join('/');
     that.click(function(e) {
       if (_gaq) {

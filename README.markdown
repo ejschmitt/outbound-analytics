@@ -37,10 +37,24 @@ Advanced Usage
 OutboundAnalytics contains several settings that can be changed for
 better tracking, these settings are as follows:
 
+* includeDestination - default: true
 * trackPath - default: 'outbound'
 * target - default: '_blank'
 * pathSuffix - default: ''
 * pathSuffixAttribute - default: null
+
+### includeDestination
+
+includeDestination determines if the tracked page url should include the final destination url.
+
+```html
+<script>
+  $('.outbound').outboundAnalytics({includeDestination: false});
+</script>
+<a href='http://example.com' class='outbound'>Click me</a>
+
+Tracked Url: '/outbound'
+```
 
 ### trackPath
 
@@ -107,6 +121,15 @@ Tracked Url: 'outbound/bounce/custom-link/http://example.com'
 <a href='http://example.com' class='outbound' data-outbound-suffix='suggested/deals_index/text_link'>Click me</a>
 
 Tracked Url: '/amazon/suggested/deals_index/text_link/http://example.com'
+```
+
+```html
+<script>
+  $('.outbound').outboundAnalytics({includeDestination: false, pathSuffix: 'amazon', pathSuffixAttribute: 'data-outbound-suffix'});
+</script>
+<a href='http://example.com' class='outbound' data-outbound-suffix='suggested/deals_index/text_link'>Click me</a>
+
+Tracked Url: '/amazon/suggested/deals_index/text_link'
 ```
 
 Author
